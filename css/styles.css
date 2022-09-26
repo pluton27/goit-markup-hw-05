@@ -131,7 +131,7 @@ header {
   position: absolute;
 
   content: '';
-  bottom: 0;
+  bottom: -1px;
   left: 0;
 
   height: 4px;
@@ -244,8 +244,10 @@ header {
 
 .backdrop.is-hidden {
   opacity: 0;
-  pointer-events: none;
   visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.6);
+  transition: opacity 250ms var(--cubic-bezier);
 }
 
 .backdrop {
@@ -257,11 +259,12 @@ header {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
+  transform: scale(1);
   transition: opacity 250ms var(--cubic-bezier);
 }
 
 .backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0.5);
+  transform: translate(-50%, -50%) scale(0.6);
   transition: transform 250ms var(--cubic-bezier);
 }
 
@@ -270,7 +273,7 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 250 ms var(--cubic-bezier);
+  transition: transform 250ms var(--cubic-bezier);
 
   width: 528px;
   height: 581px;
@@ -281,11 +284,8 @@ header {
 
 .close-button {
   position: absolute;
-  top: 0;
-  right: 0;
-
-  margin-top: 8px;
-  margin-right: 8px;
+  top: 8px;
+  right: 8px;
 
   width: 30px;
   height: 30px;
@@ -293,7 +293,6 @@ header {
 
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 100%;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   cursor: pointer;
 }
 
@@ -476,7 +475,7 @@ header {
   width: 44px;
   height: 44px;
   border-radius: 100%;
-  color: var(--primary-text-color);
+  color: #afb1b8;
 
   transition: color 250ms var(--cubic-bezier), background-color 250ms var(--cubic-bezier);
 }
@@ -663,6 +662,10 @@ header {
 }
 
 .projects a:hover .project-overlay {
+  transform: translateY(0);
+}
+
+.projects a:focus .project-overlay {
   transform: translateY(0);
 }
 
