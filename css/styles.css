@@ -247,7 +247,8 @@ header {
   visibility: hidden;
   pointer-events: none;
   transform: scale(0.6);
-  transition: opacity 250ms var(--cubic-bezier);
+  transition: opacity 250ms var(--cubic-bezier),
+   visibility 250ms var(--cubic-bezier);
 }
 
 .backdrop {
@@ -261,6 +262,7 @@ header {
   opacity: 1;
   transform: scale(1);
   transition: opacity 250ms var(--cubic-bezier);
+  z-index: 2;
 }
 
 .backdrop.is-hidden .modal {
@@ -369,6 +371,7 @@ header {
 .work-list {
   display: flex;
   justify-content: space-between;
+  z-index: 1;
 }
 
 .work-title,
